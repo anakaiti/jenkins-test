@@ -8,7 +8,7 @@ node {
             project = readYaml file: './.ci/project.yml'
         }
         stage('Build') {
-            image = docker.build("${project.name}:${project.version}", "./.ci/Dockerfile")
+            image = docker.build("${project.name}:${project.version}", "-f ./.ci/Dockerfile .")
         }
         stage('Push') {
             image.push()
