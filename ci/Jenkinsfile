@@ -11,7 +11,7 @@ node {
             image = docker.build("${project.name}:${project.version}", "./.ci/Dockerfile")
         }
         stage('Push') {
-            image.push() *
+            image.push()
         }
     }
 }
